@@ -1,11 +1,12 @@
+
 # Compiled class file
 *.class
 
 # Log file
 *.log
 
-# BlueJ files
-*.ctxt
+# IDE
+*.idea
 
 # Mobile Tools for Java (J2ME)
 .mtj.tmp/
