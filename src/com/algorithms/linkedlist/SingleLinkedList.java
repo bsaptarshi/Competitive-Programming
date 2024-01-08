@@ -136,6 +136,21 @@ public class SingleLinkedList {
         System.out.println(ptr.val);
     }
     
+    public void printList(ListNode node) {
+        if (node == null) {
+            return;
+        }
+        
+        System.out.println();
+        while (node.next != null) {
+            System.out.print(node.val);
+            System.out.print("->");
+            node = node.next;
+        }
+        
+        System.out.println(node.val);
+    }
+    
     public static void main(String[] args) {
         SingleLinkedList sll = new SingleLinkedList();
         sll.addNode(5);
@@ -156,6 +171,6 @@ public class SingleLinkedList {
 
         ListNode newHead = sll.reverseList();
         sll.setHead(newHead);
-        sll.printList();
+        sll.printList(newHead);
     }
 }
