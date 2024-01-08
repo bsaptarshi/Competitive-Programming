@@ -1,68 +1,67 @@
 package com.algorithms.linkedlist;
 
-public class SingleLinkedList {
-    class Node {
-        int val;
-        Node next;
-        
-        public Node(int val) {
-            this.val = val;
-            this.next = null;
-        }
-    }
+class ListNode {
+    int val;
+    ListNode next;
     
-    Node head;
+    public ListNode(int val) {
+        this.val = val;
+        this.next = null;
+    }
+}
+public class SingleLinkedList {
+    ListNode head;
     
     public SingleLinkedList() {
         head = null;
     }
     
-    public Node getHead() {
+    public ListNode getHead() {
         return this.head;
     }
     
-    public Node setHead(Node node) {
-        head = node;
+    public ListNode setHead(ListNode listNode) {
+        head = listNode;
         return head;
     }
     
-    public Node addNode(int data) {
-        Node node = new Node(data);
-        node.next = null;
+    public ListNode addNode(int data) {
+        ListNode listNode = new ListNode(data);
+        listNode.next = null;
         
         if (head == null) {
-            head = node;
+            head = listNode;
         } else {
-            Node ptr = head;
+            ListNode ptr = head;
             while (ptr.next != null) {
                 ptr = ptr.next;
             }
             
-            ptr.next = node;
+            ptr.next = listNode;
         }
         
         return head;
     }
     
-    public Node addNodeToFront(int data) {
-        Node node = new Node(data);
+    public ListNode addNodeToFront(int data) {
+        ListNode listNode = new ListNode(data);
         
         if (head == null) {
-            head = node;
+            head = listNode;
         } else {
-            node.next = head;
-            head = node;
+            listNode.next = head;
+            head = listNode;
         }
         
         return head;
     }
     
-    public Node deleteNode(int data) {
+    public ListNode deleteNode(int data) {
         if (head == null) {
             return head;
         }
         
-        Node ptr = head;
+        ListNode ptr = head;
         while (ptr.next != null) {
             if (ptr.next.val == data) {
                 break;
@@ -71,28 +70,28 @@ public class SingleLinkedList {
             ptr = ptr.next;
         }
         
-        Node ptr1 = ptr.next;
+        ListNode ptr1 = ptr.next;
         ptr.next = ptr1.next;
         
         return ptr1;
     }
     
-    public Node deleteNodeFromFront() {
+    public ListNode deleteNodeFromFront() {
         if (head == null) {
             return head;
         }
         
-        Node deletedNode = head;
+        ListNode deletedListNode = head;
         head = head.next;
-        return deletedNode;
+        return deletedListNode;
     }
     
-    public Node reverseList() {
+    public ListNode reverseList() {
         if (head == null) {
             return head;
         }
         
-        Node front = null, middle = head, end = null;
+        ListNode front = null, middle = head, end = null;
         
         while (middle != null) {
             end = middle.next;
@@ -104,12 +103,12 @@ public class SingleLinkedList {
         return front;
     }
     
-    public Node find(int data) {
+    public ListNode find(int data) {
         if (head == null) {
             return head;
         }
         
-        Node ptr = head;
+        ListNode ptr = head;
         while (ptr != null) {
             if (ptr.val == data) {
                 return ptr;
@@ -127,7 +126,7 @@ public class SingleLinkedList {
         }
         
         System.out.println();
-        Node ptr = head;
+        ListNode ptr = head;
         while (ptr.next != null) {
             System.out.print(ptr.val);
             System.out.print("->");
@@ -146,7 +145,7 @@ public class SingleLinkedList {
         sll.addNodeToFront(2);
         sll.printList();
         
-        Node search = sll.find(7);
+        ListNode search = sll.find(7);
         System.out.println("Found node with val = " + search.val);
         
         sll.deleteNode(8);
@@ -155,7 +154,7 @@ public class SingleLinkedList {
         sll.deleteNodeFromFront();
         sll.printList();
 
-        Node newHead = sll.reverseList();
+        ListNode newHead = sll.reverseList();
         sll.setHead(newHead);
         sll.printList();
     }
